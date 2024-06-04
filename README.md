@@ -131,19 +131,20 @@ Results using Ruby 3.3.2:
 \* `Dry::Core`
 [may cause incorrect behavior caused by hash collisions](https://github.com/dry-rb/dry-core/issues/63).
 
-Results using Ruby 2.7.8 (because these gems raise errors in Ruby 3.x):
+Results using Ruby 2.7.8 (either because these gems raise errors in Ruby 3.x, 
+or due to namespace collisions with more modern forks run against Ruby 3.x):
 
-|Method arguments|`DDMemoize` (1.0.0)|`Memoist` (0.16.2)|`Memoized` (1.1.1)|`Memoizer` (1.0.3)|
-|--|--|--|--|--|
-|`()` (none)|22.57x|2.27x|23.46x|2.63x|
-|`(a)`|20.96x|14.29x|20.54x|11.97x|
-|`(a, b)`|18.22x|13.21x|17.76x|11.34x|
-|`(a:)`|30.66x|23.52x|25.37x|21.61x|
-|`(a:, b:)`|27.31x|21.98x|23.02x|20.31x|
-|`(a, b:)`|26.21x|20.85x|21.57x|19.20x|
-|`(a, *args)`|3.06x|2.23x|3.10x|1.92x|
-|`(a:, **kwargs)`|2.67x|2.18x|2.39x|2.02x|
-|`(a, *args, b:, **kwargs)`|2.14x|1.80x|1.89x|1.70x|
+|Method arguments|`DDMemoize` (1.0.0)|`Memery` (memery|`Memoist` (memoist|`Memoized` (1.1.1)|`Memoizer` (1.0.3)|
+|--|--|--|--|--|--|
+|`()` (none)|20.10x|3.79x|2.35x|22.22x|3.05x|
+|`(a)`|17.03x|8.70x|12.39x|17.75x|11.06x|
+|`(a, b)`|15.26x|8.41x|11.13x|15.27x|10.06x|
+|`(a:)`|22.28x|12.52x|18.17x|20.59x|16.45x|
+|`(a:, b:)`|10.09x|5.77x|9.15x|10.83x|11.99x|
+|`(a, b:)`|20.01x|11.25x|16.88x|18.26x|15.34x|
+|`(a, *args)`|2.98x|1.56x|2.27x|3.04x|1.96x|
+|`(a:, **kwargs)`|2.73x|1.55x|2.20x|2.49x|2.10x|
+|`(a, *args, b:, **kwargs)`|2.16x|1.16x|1.85x|1.99x|1.74x|
 
 You can run benchmarks yourself with:
 
